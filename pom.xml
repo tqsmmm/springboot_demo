@@ -24,7 +24,6 @@
             <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
 
-
         <dependency>
             <groupId>com.microsoft.sqlserver</groupId>
             <artifactId>mssql-jdbc</artifactId>

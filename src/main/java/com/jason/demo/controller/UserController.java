@@ -20,9 +20,9 @@ public class UserController {
     @PostMapping("/login")
     public String login(@RequestParam String username, @RequestParam String password) {
         if (userService.login(username, password)) {
-            return "123";
+            return "登录成功";
         } else {
-            return "456";
+            return "验证失败";
         }
     }
 
@@ -31,7 +31,7 @@ public class UserController {
 
     @GetMapping("/{userId}")
     public User getUserById(@PathVariable("userId") int userId) {
-        String query = "SELECT * FROM dgjh_mana.dbo.t_yhb WHERE yhid = ?";
+        String query = "SELECT * FROM t_yhb WHERE yhid = ?";
         RowMapper<User> rowMapper = new UserRowMapper();
         User user = jdbcTemplate.queryForObject(query, rowMapper, userId);
         return user;
@@ -40,9 +40,9 @@ public class UserController {
     private static final class UserRowMapper implements RowMapper<User> {
         public User mapRow(ResultSet rs, int rowNum) throws SQLException {
             User user = new User();
-            user.setId(rs.getInt("id"));
-            user.setName(rs.getString("username"));
-            user.setPassword(rs.getString("password"));
+            user.setId(rs.getInt("yhid"));
+            user.setName(rs.getString("yhxm"));
+            user.setPassword(rs.getString("yhmm"));
             return user;
         }
     }
