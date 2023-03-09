@@ -5,6 +5,8 @@ public class User {
 
     private String username;
 
+    private String usercode;
+
     private String password;
 
     // 省略 getter 和 setter 方法
@@ -23,6 +25,14 @@ public class User {
 
     public void setName(String username) {
         this.username = username;
+    }
+
+    public String getCode() {
+        return usercode;
+    }
+
+    public void setCode(String usercode) {
+        this.usercode = usercode;
     }
 
     public String getPassword() {
