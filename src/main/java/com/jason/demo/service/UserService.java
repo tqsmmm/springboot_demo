@@ -10,7 +10,7 @@ import com.jason.demo.common.User;
 
 @Service
 public class UserService {
-
+    
     public static final class UserRowMapper implements RowMapper<User> {
         public User mapRow(ResultSet rs, int rowNum) throws SQLException {
             User user = new User();

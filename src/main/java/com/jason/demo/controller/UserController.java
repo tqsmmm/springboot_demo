@@ -8,8 +8,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.jdbc.core.RowMapper;
 
-import com.jason.demo.api.ApiResponse;
 import com.jason.demo.common.User;
+import com.jason.demo.response.ApiResponse;
 import com.jason.demo.service.UserService;
 
 @RestController
@@ -38,6 +38,7 @@ public class UserController {
             @RequestParam(value = "code", required = false) String code) {
         String query = "SELECT * FROM t_yhb";
         List<Object> params = new ArrayList<>();
+
         if (name != null && !name.isEmpty()) {
             query += " WHERE yhxm LIKE ?";
             params.add("%" + name + "%");
@@ -80,7 +81,8 @@ public class UserController {
         int rowsAffected = jdbcTemplate.update(query, user.getCode(), user.getPassword(), user.getName());
 
         if (rowsAffected > 0) {
-            // int userId = jdbcTemplate.queryForObject("SELECT LAST_INSERT_ID()", Integer.class);
+            // int userId = jdbcTemplate.queryForObject("SELECT LAST_INSERT_ID()",
+            // Integer.class);
             // user.setId(userId);
             return new ApiResponse<>(200, "添加成功", user);
         } else {

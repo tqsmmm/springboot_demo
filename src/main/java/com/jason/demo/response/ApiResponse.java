@@ -1,4 +1,4 @@
-package com.jason.demo.api;
+package com.jason.demo.response;
 
 public class ApiResponse<T> {
     private int code;

@@ -2,14 +2,9 @@ package com.jason.demo.common;
 
 public class User {
     private Integer id;
-
     private String username;
-
     private String usercode;
-
     private String password;
-
-    // 省略 getter 和 setter 方法
 
     public Integer getId() {
         return id;
